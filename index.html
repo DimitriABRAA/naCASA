@@ -75,10 +75,10 @@ nav.scrolled{
   box-shadow:0 8px 32px rgba(0,0,0,.06);
 }
 .logo{display:inline-flex;align-items:center;position:relative;line-height:1}
-.logo-img{display:block;height:72px;width:auto;transition:transform .35s var(--ease-out),filter .35s}
+.logo-img{display:block;height:100px;width:auto;transition:transform .35s var(--ease-out),filter .35s}
 .logo:hover .logo-img{transform:scale(1.02)}
 nav:not(.scrolled) .logo-img{filter:drop-shadow(0 2px 14px rgba(0,0,0,.55))}
-nav.scrolled .logo-img{height:58px;filter:none}
+nav.scrolled .logo-img{height:80px;filter:none}
 .nav-r{display:flex;align-items:center;gap:36px}
 .nav-lnk{
   font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
@@ -138,8 +138,8 @@ nav.scrolled .nav-btn{
 
 .hero-glass-panel{
   position:relative;z-index:10;
-  max-width:420px;width:42%;
-  padding:28px 32px;
+  max-width:580px;width:54%;
+  padding:36px 44px;
   background:rgba(255,255,255,.06);
   backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
   border:1px solid var(--glass-border);
@@ -165,7 +165,7 @@ nav.scrolled .nav-btn{
 
 .hero-h1{
   font-family:var(--serif);
-  font-size:clamp(22px,2.4vw,32px);
+  font-size:clamp(26px,2.8vw,38px);
   font-weight:400;line-height:1.08;letter-spacing:-.01em;
   color:var(--cream);margin-bottom:0;
 }
@@ -267,6 +267,12 @@ nav.scrolled .nav-btn{
 .mdot{width:8px;height:8px;border-radius:50%;background:var(--cta);opacity:1}
 @keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
+/* ─── VIDEO SECTION ─────────────────────── */
+.video-section{padding:72px 0 56px;background:var(--page-bg)}
+.video-intro{text-align:center;font-family:var(--sans);font-size:clamp(16px,2.2vw,20px);font-weight:600;color:var(--text);max-width:760px;margin:0 auto 28px;line-height:1.55;padding:0 16px}
+.video-wrap{max-width:920px;margin:0 auto;border-radius:14px;overflow:hidden;border:1px solid var(--glass-border);box-shadow:0 24px 70px rgba(0,0,0,.08);background:#000}
+.video-wrap video{width:100%;display:block}
+
 /* ─── GALLERY STRIP ──────────────────────── */
 .gallery-strip{
   display:grid;grid-template-columns:repeat(5,1fr);
@@ -331,16 +337,17 @@ nav.scrolled .nav-btn{
 .pq-big-title{
   font-family:var(--font-title);
   font-size:clamp(52px,6.5vw,88px);
-  line-height:.88;
+  line-height:.95;
   color:var(--text);text-transform:uppercase;letter-spacing:-.02em;
   margin-bottom:32px;
+  display:flex;flex-direction:column;
 }
-.pq-accent{color:var(--cta);display:block}
+.pq-accent{color:var(--cta)}
 .pq-extras-list{list-style:none;text-align:left;display:flex;flex-direction:column;gap:10px}
 .pq-extras-list li{
-  font-family:var(--sans);font-size:14px;font-weight:600;
-  color:var(--text-soft);line-height:1.4;
-  padding-left:20px;position:relative;
+  font-family:var(--sans);font-size:17px;font-weight:600;
+  color:var(--text-soft);line-height:1.5;
+  padding-left:24px;position:relative;
 }
 .pq-extras-list li::before{
   content:'';position:absolute;left:0;top:7px;
@@ -477,6 +484,7 @@ nav.scrolled .nav-btn{
 #bonus .fb-dark-overlay{
   background:linear-gradient(to bottom,rgba(10,9,7,.75) 0%,rgba(10,9,7,.8) 100%);
 }
+#bonus .sh2{color:var(--cream)}
 
 .bonus-inner{position:relative;z-index:10;width:100%}
 .bonus-grid{
@@ -537,7 +545,7 @@ nav.scrolled .nav-btn{
 }
 .fund-photo{
   position:absolute;inset:0;
-  background:url('./fundadoras2.jpg') center top / cover no-repeat;
+  background:url('./MEETING - As especialistas.jpg.jpeg') center 15% / cover no-repeat;
   transition:transform 8s var(--ease);
 }
 .fund-photo-panel:hover .fund-photo{transform:scale(1.04)}
@@ -768,10 +776,10 @@ footer{
   .w,.foot{padding:0 24px}
   nav{padding:18px 24px}
   nav.scrolled{padding:12px 24px}
-  .logo-img{height:54px!important}
-  nav.scrolled .logo-img{height:44px!important}
-  .hero-glass-panel{padding:14px 16px!important; margin-top: 30px; width: 72%!important; max-width: 280px!important;}
-  .hero-h1,.hero-glass--light .hero-h1{font-size:18px!important; line-height:1.1!important;}
+  .logo-img{height:72px!important}
+  nav.scrolled .logo-img{height:58px!important}
+  .hero-glass-panel{padding:22px 24px!important; margin-top: 30px; width: 88%!important; max-width: 440px!important;}
+  .hero-h1,.hero-glass--light .hero-h1{font-size:22px!important; line-height:1.1!important;}
   .hero-sub,.hero-glass--light .hero-sub{font-size:10px!important; margin-top:6px; line-height: 1.3;}
   .hero-label,.hero-glass--light .hero-label{margin-bottom:4px; font-size: 8px!important;}
   .hero-stats{flex-direction:row; gap:8px; margin-top: 8px; margin-bottom: 8px;}
@@ -865,6 +873,18 @@ footer{
   </div>
 </div>
 
+<!-- ═══ VÍDEO ═══ -->
+<section class="video-section r">
+  <div class="w">
+    <p class="video-intro">Assista o vídeo abaixo para entender como funciona o clube naCASA</p>
+    <div class="video-wrap">
+      <video controls playsinline>
+        <source src="clube%20naCASA%20-%20plataforma%20de%20cursos%2C%20v%C3%ADdeo.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ GALLERY STRIP ═══ -->
 <div class="gallery-strip" aria-hidden="true">
   <div class="gallery-strip-item">
@@ -905,7 +925,7 @@ footer{
 
       <!-- Center: big title -->
       <div class="pq-col pq-col-center">
-        <div class="pq-big-title">IDEAL<br><span class="pq-accent">PARA</span><br>QUEM</div>
+        <div class="pq-big-title"><span>IDEAL</span><span class="pq-accent">PARA</span><span>QUEM</span></div>
         <ul class="pq-extras-list">
           <li>Quer descobrir seu estilo de decoração</li>
           <li>Quer montar ou decorar sozinho algum ambiente da casa</li>
