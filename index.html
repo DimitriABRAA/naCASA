@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Clube naCASA</title>
-<meta name="description" content="Um clube de decoração que te dá autonomia para transformar qualquer espaço em um verdadeiro lar.">
+<meta name="description" content="Um clube de decoração que te dá autonomia para transformar qualquer espaço em um lar com a sua identidade.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
@@ -64,21 +64,21 @@ body::after{
 nav{
   position:fixed;top:0;left:0;right:0;z-index:500;
   display:flex;align-items:center;justify-content:space-between;
-  padding:28px 72px;
+  padding:32px 72px;
   transition:padding .6s var(--ease), background .6s;
 }
 nav.scrolled{
-  padding:14px 72px;
+  padding:18px 72px;
   background:rgba(255,255,255,.92);
   backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);
   border-bottom:1px solid var(--glass-border);
   box-shadow:0 8px 32px rgba(0,0,0,.06);
 }
 .logo{display:inline-flex;align-items:center;position:relative;line-height:1}
-.logo-img{display:block;height:100px;width:auto;transition:transform .35s var(--ease-out),filter .35s}
+.logo-img{display:block;height:46px;width:auto;transition:transform .35s var(--ease-out),filter .35s}
 .logo:hover .logo-img{transform:scale(1.02)}
-nav:not(.scrolled) .logo-img{filter:brightness(0) invert(1) drop-shadow(0 2px 12px rgba(0,0,0,.8))}
-nav.scrolled .logo-img{height:80px;filter:none}
+nav:not(.scrolled) .logo-img{filter:drop-shadow(0 2px 14px rgba(0,0,0,.55))}
+nav.scrolled .logo-img{height:40px;filter:none}
 .nav-r{display:flex;align-items:center;gap:36px}
 .nav-lnk{
   font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
@@ -95,7 +95,7 @@ nav.scrolled .nav-lnk:hover{color:var(--peach)}
 .nav-lnk:hover::after{transform:scaleX(1);transform-origin:left}
 nav.scrolled .nav-lnk::after{background:var(--cta)}
 .nav-btn{
-  font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#fff;
+  font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);
   padding:11px 26px;border:1px solid rgba(255,255,255,.45);
   background:rgba(255,255,255,.18);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   transition:border-color .3s, background .3s, color .3s;position:relative;overflow:hidden;
@@ -118,31 +118,35 @@ nav.scrolled .nav-btn{
   display:flex;align-items:center;justify-content:center;
 }
 
+/* cinematic background image with Ken Burns */
 .hero-img{
-  position:absolute;inset:0;overflow:hidden;
-}
-.hero-img img{
-  width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;
+  position:absolute;inset:0;
+  background:url('hero-bg.png') center/cover no-repeat;
+  transform:scale(1.08);
+  animation:kenburns 18s ease-in-out infinite alternate;
 }
 @keyframes kenburns{
   from{transform:scale(1.08) translate(0,0)}
   to{transform:scale(1.0) translate(-1.5%,-.8%)}
 }
 
+/* cinematic overlay — multi-layer dark */
 .hero-overlay{
   position:absolute;inset:0;
   background:
-    linear-gradient(to bottom, rgba(10,9,7,.38) 0%, rgba(10,9,7,.08) 35%, rgba(10,9,7,.28) 100%);
+    linear-gradient(to bottom, rgba(10,9,7,.55) 0%, rgba(10,9,7,.2) 40%, rgba(10,9,7,.6) 100%),
+    linear-gradient(to right, rgba(10,9,7,.5) 0%, transparent 60%);
 }
 
+/* central liquid glass panel */
 .hero-glass-panel{
   position:relative;z-index:10;
-  max-width:580px;width:54%;
-  padding:36px 44px;
-  background:rgba(10,9,7,.55);
+  max-width:420px;width:42%;
+  padding:28px 32px;
+  background:rgba(255,255,255,.06);
   backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
-  border:1px solid rgba(255,255,255,.14);
-  border-top:1px solid rgba(255,255,255,.28);
+  border:1px solid var(--glass-border);
+  border-top:1px solid var(--glass-top);
   box-shadow:
     0 0 0 1px rgba(255,255,255,.04),
     0 48px 120px rgba(0,0,0,.5),
@@ -156,15 +160,15 @@ nav.scrolled .nav-btn{
 }
 
 .hero-label{
-  font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.38em;text-transform:uppercase;
-  color:var(--cta);margin-bottom:20px;
+  font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.38em;text-transform:uppercase;
+  color:var(--peach);margin-bottom:20px;
   display:flex;align-items:center;justify-content:center;gap:12px;
 }
-.hero-label::before,.hero-label::after{content:'';width:36px;height:1px;background:var(--cta);opacity:.7}
+.hero-label::before,.hero-label::after{content:'';width:36px;height:1px;background:var(--peach);opacity:.5}
 
 .hero-h1{
   font-family:var(--serif);
-  font-size:clamp(26px,2.8vw,38px);
+  font-size:clamp(22px,2.4vw,32px);
   font-weight:400;line-height:1.08;letter-spacing:-.01em;
   color:var(--cream);margin-bottom:0;
 }
@@ -176,9 +180,44 @@ nav.scrolled .nav-btn{
 }
 
 .hero-sub{
-  font-family:var(--sans);font-size:clamp(13px,1.4vw,15px);font-weight:400;
-  color:rgba(243,237,228,.88);line-height:1.6;
-  margin:16px auto 0;max-width:420px;
+  font-family:var(--sans);font-size:7px;font-weight:400;
+  color:rgba(243,237,228,.82);line-height:1.35;
+  margin:4px auto 0;max-width:140px;
+}
+
+/* stat bar inside glass */
+.hero-stats{
+  display:flex;align-items:center;justify-content:center;
+  gap:0;margin-top:44px;
+  border-top:1px solid rgba(255,255,255,.1);padding-top:32px;
+}
+.hs-item{flex:1;text-align:center;padding:0 20px}
+.hs-item+.hs-item{border-left:1px solid rgba(255,255,255,.1)}
+.hs-num{font-family:var(--serif);font-size:34px;font-weight:400;color:var(--cream);line-height:1;transition:color .4s}
+.hs-item:hover .hs-num{color:var(--peach)}
+.hs-lbl{font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(243,237,228,.88);margin-top:6px}
+
+/* CTA row */
+.hero-ctas{
+  display:flex;align-items:center;justify-content:center;gap:32px;
+  margin-top:40px;
+}
+.btn-vendas{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:20px 48px;width:100%;max-width:400px;
+  background:var(--cta);
+  border-radius:6px;
+  font-family:var(--sans);font-size:16px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);
+  transition:transform .3s var(--ease-out), background .3s;
+  box-shadow:0 8px 24px rgba(0, 216, 86, .3);
+  animation: pulse-cta 2s infinite;
+  text-decoration:none;
+}
+.btn-vendas:hover{background:var(--cta-h);transform:scale(1.05)}
+@keyframes pulse-cta {
+  0% { box-shadow: 0 0 0 0 rgba(0, 216, 86, 0.7); }
+  70% { box-shadow: 0 0 0 20px rgba(0, 216, 86, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 216, 86, 0); }
 }
 
 /* hero — painel claro sobre foto escura */
@@ -197,45 +236,20 @@ nav.scrolled .nav-btn{
 .hero-glass--light .hs-lbl{color:var(--text-soft)!important}
 .hero-glass--light .hero-ctas .hero-secure{color:var(--text-soft)!important}
 
-/* stat bar inside glass */
-.hero-stats{
-  display:flex;align-items:center;justify-content:center;
-  gap:0;margin-top:32px;
-  border-top:1px solid rgba(255,255,255,.1);padding-top:24px;
-}
-.hs-item{flex:1;text-align:center;padding:0 20px}
-.hs-item+.hs-item{border-left:1px solid rgba(255,255,255,.1)}
-.hs-num{font-family:var(--serif);font-size:34px;font-weight:400;color:var(--cream);line-height:1;transition:color .4s}
-.hs-item:hover .hs-num{color:var(--peach)}
-.hs-lbl{font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(243,237,228,.88);margin-top:6px}
+/* faixa de imagens + vídeo */
+.hero-strip{background:var(--page-bg-2);border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border);padding:28px 0}
+.hero-strip-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch}
+@media(max-width:900px){.hero-strip-inner{grid-template-columns:repeat(2,1fr)}}
+.hero-strip-inner img{width:100%;height:clamp(140px,22vw,200px);object-fit:cover;border-radius:10px;border:1px solid var(--glass-border)}
 
-/* CTA row */
-.hero-ctas{
-  display:flex;align-items:center;justify-content:center;gap:32px;
-  margin-top:32px;
+.hero-video-block{padding:72px 0 56px;background:var(--page-bg)}
+.hero-video-intro{
+  text-align:center;font-family:var(--sans);font-size:clamp(16px,2.2vw,19px);font-weight:600;color:var(--text);
+  max-width:760px;margin:0 auto 22px;line-height:1.55;padding:0 16px;
 }
-.btn-vendas{
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:20px 48px;width:100%;max-width:400px;
-  background:var(--cta);
-  border-radius:6px;
-  font-family:var(--sans);font-size:16px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#fff;
-  transition:transform .3s var(--ease-out), background .3s;
-  box-shadow:0 8px 24px rgba(217,119,54,.35);
-  animation: pulse-cta 2s infinite;
-  text-decoration:none;
-}
-.btn-vendas:hover{background:var(--cta-h);transform:scale(1.05)}
-@keyframes pulse-cta {
-  0%   { box-shadow: 0 0 0 0   rgba(217,119,54,0.7); }
-  70%  { box-shadow: 0 0 0 18px rgba(217,119,54,0); }
-  100% { box-shadow: 0 0 0 0   rgba(217,119,54,0); }
-}
-
-.hero-secure{
-  font-family:var(--sans);font-size:11px;font-weight:500;
-  color:rgba(243,237,228,.75);letter-spacing:.06em;
-}
+.video-embed-wrap{position:relative;max-width:920px;margin:0 auto;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:14px;border:1px solid var(--glass-border);box-shadow:0 24px 70px rgba(0,0,0,.08);background:#000}
+.video-embed{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-embed-note{text-align:center;margin-top:14px;font-size:12px;color:var(--text-soft);max-width:720px;margin-left:auto;margin-right:auto;padding:0 16px}
 
 /* scroll caret */
 .hero-scroll{
@@ -265,24 +279,6 @@ nav.scrolled .nav-btn{
 .mi:hover{color:var(--cta)}
 .mdot{width:8px;height:8px;border-radius:50%;background:var(--cta);opacity:1}
 @keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-/* ─── VIDEO SECTION ─────────────────────── */
-.video-section{padding:72px 0 56px;background:var(--page-bg)}
-.video-intro{text-align:center;font-family:var(--sans);font-size:clamp(16px,2.2vw,20px);font-weight:600;color:var(--text);max-width:760px;margin:0 auto 28px;line-height:1.55;padding:0 16px}
-.video-wrap{max-width:920px;margin:0 auto;border-radius:14px;overflow:hidden;border:1px solid var(--glass-border);box-shadow:0 24px 70px rgba(0,0,0,.08);background:#000}
-.video-wrap video{width:100%;display:block}
-
-/* ─── GALLERY STRIP ──────────────────────── */
-.gallery-strip{
-  display:grid;grid-template-columns:repeat(5,1fr);
-  height:340px;overflow:hidden;
-}
-.gallery-strip-item{position:relative;overflow:hidden}
-.gallery-strip-item img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform 8s var(--ease);filter:brightness(.82);
-}
-.gallery-strip-item:hover img{transform:scale(1.07);filter:brightness(1)}
 
 /* ─── FULLBLEED HELPER ───────────────────── */
 .fb-section{position:relative;overflow:hidden}
@@ -315,45 +311,8 @@ nav.scrolled .nav-btn{
 .sh2 em{font-style:normal;color:var(--cta);opacity:1}
 .sh2.light em{color:var(--cta);opacity:1}
 
-/* ─── PARA QUEM — MOSAIC ─────────────────── */
-#paraquem{padding:100px 0;background:var(--page-bg);color:var(--text)}
-.pq-mosaic{
-  display:grid;
-  grid-template-columns:1fr clamp(180px,28vw,360px) 1fr;
-  gap:28px;align-items:center;
-}
-.pq-col{display:flex;flex-direction:column;gap:24px}
-.pq-img-wrap{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3}
-.pq-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 8s var(--ease)}
-.pq-img-wrap:hover img{transform:scale(1.06)}
-.pq-img-label{
-  position:absolute;bottom:0;left:0;right:0;padding:14px 18px;
-  background:linear-gradient(to top,rgba(0,0,0,.72),transparent);
-  font-family:var(--sans);font-size:11px;font-weight:600;
-  letter-spacing:.1em;color:rgba(255,255,255,.95);
-}
-.pq-col-center{align-items:center;text-align:center;padding:0 8px}
-.pq-big-title{
-  font-family:var(--font-title);
-  font-size:clamp(52px,6.5vw,88px);
-  line-height:.95;
-  color:var(--text);text-transform:uppercase;letter-spacing:-.02em;
-  margin-bottom:32px;
-  display:flex;flex-direction:column;
-}
-.pq-accent{color:var(--cta)}
-.pq-extras-list{list-style:none;text-align:left;display:flex;flex-direction:column;gap:10px}
-.pq-extras-list li{
-  font-family:var(--sans);font-size:17px;font-weight:600;
-  color:var(--text-soft);line-height:1.5;
-  padding-left:24px;position:relative;
-}
-.pq-extras-list li::before{
-  content:'';position:absolute;left:0;top:7px;
-  width:6px;height:6px;border-radius:50%;background:var(--cta);
-}
-
 /* ─── MANIFESTO ──────────────────────────── */
+/* Fullbleed with photo — offset glass panel */
 #manifesto{padding:180px 0;min-height:80vh;display:flex;align-items:center}
 #manifesto .fb-img{
   background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1920&q=80');
@@ -376,6 +335,27 @@ nav.scrolled .nav-btn{
 .manifesto-body p+p{margin-top:18px}
 .manifesto-body strong{color:#fff;font-weight:600}
 
+/* ─── PARA QUEM ──────────────────────────── */
+#paraquem{padding:140px 0;background:var(--page-bg);color:var(--text)}
+
+.pq-header{
+  display:flex;flex-direction:column;gap:30px;
+  align-items:flex-start;margin-bottom:56px;
+}
+.pq-h2{font-family:var(--font-title);font-size:clamp(36px,6vw,56px);font-weight:400;line-height:1.08;letter-spacing:-.02em;color:var(--text);text-transform:none}
+.pq-h2 em{font-style:normal;color:var(--cta);opacity:1}
+.pq-lead{font-family:var(--sans);font-size:18px;font-weight:500;color:var(--text-soft);line-height:1.6;max-width:560px}
+
+.pq-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+.pq-item{
+  padding:28px 26px;background:var(--surface);border:1px solid var(--glass-border);border-radius:12px;
+  position:relative;transition:box-shadow .35s var(--ease), transform .4s var(--ease);cursor:default;
+  box-shadow:0 4px 24px rgba(0,0,0,.04);
+}
+.pq-item:hover{transform:translateY(-3px);border-color:rgba(217,119,54,.45);box-shadow:0 12px 40px rgba(0,0,0,.07)}
+.pq-h{font-family:var(--font-title);font-size:20px;font-weight:400;color:var(--text);line-height:1.2;margin-bottom:8px;text-transform:none}
+.pq-p{font-family:var(--sans);font-size:14px;font-weight:500;line-height:1.5;color:var(--text-soft)}
+
 /* ─── SOBRE ──────────────────────────────── */
 #sobre{padding:160px 0;min-height:80vh;display:flex;align-items:center}
 #sobre .fb-img{
@@ -397,19 +377,6 @@ nav.scrolled .nav-btn{
 }
 .sobre-body p+p{margin-top:18px}
 .sobre-body strong{color:#fff;font-weight:600}
-
-/* btn-glass */
-.btn-glass{
-  display:inline-flex;align-items:center;
-  padding:14px 28px;
-  font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(255,255,255,.9);
-  border:1px solid rgba(255,255,255,.3);
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  transition:background .3s,border-color .3s,color .3s;
-}
-.btn-glass:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.6)}
 
 /* floating glass card right */
 .sobre-card{
@@ -447,6 +414,12 @@ nav.scrolled .nav-btn{
 .cursos-h2 em{font-style:normal;color:var(--cta);opacity:1}
 .cursos-lead{font-family:var(--sans);font-size:17px;font-weight:500;color:var(--text-soft);line-height:1.65;max-width:480px}
 
+.cursos-capas{margin:0 0 40px}
+.cursos-capas img{
+  width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--glass-border);
+  box-shadow:0 16px 48px rgba(0,0,0,.06);
+}
+
 .trilha{margin-bottom:48px}
 .trilha-hd{
   display:flex;align-items:center;justify-content:space-between;
@@ -473,9 +446,6 @@ nav.scrolled .nav-btn{
 .ci-nm{font-family:var(--font-title);font-size:20px;font-weight:400;color:var(--text);line-height:1.2;text-transform:none}
 .ci-d{font-family:var(--sans);font-size:15px;font-weight:500;line-height:1.65;color:var(--text-soft);max-width:340px}
 .ci.span2{grid-column:span 2}
-.ci-img{height:110px;overflow:hidden;border-radius:6px;margin-top:auto;padding-top:8px}
-.ci-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.85);transition:transform 6s var(--ease),filter .4s}
-.ci:hover .ci-img img{transform:scale(1.07);filter:brightness(1)}
 
 /* ─── BÔNUS ──────────────────────────────── */
 #bonus{padding:160px 0;min-height:70vh;display:flex;align-items:center}
@@ -486,7 +456,6 @@ nav.scrolled .nav-btn{
 #bonus .fb-dark-overlay{
   background:linear-gradient(to bottom,rgba(10,9,7,.75) 0%,rgba(10,9,7,.8) 100%);
 }
-#bonus .sh2{color:var(--cream)}
 
 .bonus-inner{position:relative;z-index:10;width:100%}
 .bonus-grid{
@@ -522,6 +491,7 @@ nav.scrolled .nav-btn{
 /* ─── FUNDADORAS ─────────────────────────── */
 #fundadoras{padding:140px 0;background:var(--page-bg);color:var(--text)}
 
+/* split layout: text left, image panel right */
 .fund-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 .fund-text{}
 .fund-cards{display:flex;flex-direction:column;gap:1px}
@@ -540,20 +510,20 @@ nav.scrolled .nav-btn{
 .fc-cargo{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--cta);margin-bottom:14px;position:relative;z-index:1}
 .fc-bio{font-family:var(--sans);font-size:15px;font-weight:500;line-height:1.7;color:var(--text-soft);position:relative;z-index:1}
 
-/* photo panel for founders — full bleed */
+/* photo panel for founders */
 .fund-photo-panel{
   position:relative;overflow:hidden;
-  height:100%;min-height:600px;border-radius:4px;
+  height:100%;min-height:560px;
 }
 .fund-photo{
   position:absolute;inset:0;
-  background:url('./MEETING - As especialistas.jpg.jpeg') center 15% / cover no-repeat;
+  background:url('./comunidade-plataforma.png') center/cover no-repeat;
   transition:transform 8s var(--ease);
 }
 .fund-photo-panel:hover .fund-photo{transform:scale(1.04)}
 .fund-photo-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(to bottom,transparent 50%,rgba(10,9,7,.75) 100%);
+  background:linear-gradient(to bottom,transparent 40%,rgba(10,9,7,.85) 100%);
 }
 .fund-photo-caption{
   position:absolute;bottom:32px;left:32px;right:32px;
@@ -605,7 +575,7 @@ nav.scrolled .nav-btn{
   background:var(--ink-2);
   border:2px solid var(--cta);
   border-radius:16px;
-  box-shadow:0 12px 40px rgba(217,119,54,.15);
+  box-shadow:0 12px 40px rgba(0, 216, 86, .1);
   position:relative;overflow:hidden;margin-bottom:24px;
 }
 
@@ -624,7 +594,7 @@ nav.scrolled .nav-btn{
 }
 .ptag{
   font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
-  color:var(--cream);background:rgba(217,119,54,.1);border:1px solid var(--cta);padding:10px 16px;
+  color:var(--cream);background:rgba(0,144,255,.1);border:1px solid var(--cta);padding:10px 16px;
   border-radius:4px;
   transition:background .3s,color .3s;
 }
@@ -636,9 +606,9 @@ nav.scrolled .nav-btn{
   background:var(--cta);
   border-radius:8px;
   border:none;
-  font-family:var(--sans);font-size:18px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:#fff;
+  font-family:var(--sans);font-size:18px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);
   transition:all .3s var(--ease-out);position:relative;z-index:1;cursor:pointer;
-  box-shadow:0 8px 24px rgba(217,119,54,.35);
+  box-shadow:0 8px 24px rgba(0, 216, 86, .3);
   animation: pulse-cta 2s infinite;
 }
 .btn-preco svg{transition:transform .5s var(--ease-out)}
@@ -689,7 +659,7 @@ footer{
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;
 }
 .foot-logo{display:inline-flex;align-items:center}
-.foot-logo-img{height:52px;width:auto;display:block}
+.foot-logo-img{height:40px;width:auto;display:block}
 .foot-copy{font-family:var(--sans);font-size:12px;font-weight:500;color:var(--text-soft)}
 .foot-mail{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--text);transition:color .3s;position:relative}
 .foot-mail::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:1px;background:var(--peach);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease-out)}
@@ -701,6 +671,7 @@ footer{
 .r.on{opacity:1;transform:translateY(0)}
 .r1{transition-delay:.12s}.r2{transition-delay:.24s}.r3{transition-delay:.36s}.r4{transition-delay:.48s}
 
+/* Line-by-line reveal — words/lines slide up from clip mask */
 .line-reveal{display:block;overflow:hidden;line-height:inherit; padding: 0.2em; margin: -0.2em;}
 .line-reveal > span{
   display:inline-block;transform:translateY(110%);
@@ -708,6 +679,7 @@ footer{
 }
 .r.on .line-reveal > span{transform:translateY(0)}
 
+/* Char split reveal for hero */
 .split-char{display:inline-block;opacity:0;transform:translateY(60%) rotate(4deg);transition:opacity .9s var(--ease-out), transform .9s var(--ease-out)}
 .r.on .split-char{opacity:1;transform:translateY(0) rotate(0)}
 
@@ -722,7 +694,7 @@ footer{
 /* ─── CUSTOM CURSOR ────────────────────────── */
 @media(hover:hover) and (pointer:fine){
   body{cursor:none}
-  a, button, .pq-img-wrap, .ci, .bc, .fc, .fund-photo-panel, .sc-stat, .hs-item, .fi, [data-magnetic]{cursor:none}
+  a, button, .pq-item, .ci, .bc, .fc, .fund-photo-panel, .sc-stat, .hs-item, .fi, [data-magnetic]{cursor:none}
   .cursor-dot{
     position:fixed;top:0;left:0;width:6px;height:6px;border-radius:50%;
     background:#ffffff;pointer-events:none;z-index:9999;
@@ -751,53 +723,49 @@ footer{
 .tilt-glass{transform-style:preserve-3d;will-change:transform;transition:transform .6s var(--ease-out)}
 .tilt-glass > *{transform:translateZ(40px)}
 
-/* ─── EM ACCENT ─────────────────────────────── */
-.sh2 em, .preco-h em, .hero-h1 em{position:relative}
+/* ─── EM ACCENT — peach glow on dark sections ─── */
+.sh2 em, .preco-h em, .hero-h1 em{
+  position:relative;
+}
+
+/* ─── pq item lead em — navy on cream ───────── */
 .pq-h2 em, .cursos-h2 em, .faq-aside-h em{position:relative}
 
 /* ─── RESPONSIVE ─────────────────────────── */
 @media(max-width:1100px){
   .w,.foot{padding:0 48px}
-  nav{padding:20px 48px}
-  nav.scrolled{padding:14px 48px}
+  nav{padding:24px 48px}
+  nav.scrolled{padding:16px 48px}
   #manifesto .fb-side-overlay{background:rgba(10,9,7,.8)}
-  .sobre-inner,.fund-layout{grid-template-columns:1fr}
+  .sobre-inner,.fund-layout,.pq-header,.cursos-header{grid-template-columns:1fr}
   .faq-layout{grid-template-columns:1fr}
-}
-@media(max-width:900px){
-  .gallery-strip{grid-template-columns:repeat(3,1fr);height:200px}
-  .gallery-strip-item:nth-child(4),.gallery-strip-item:nth-child(5){display:none}
-  .pq-mosaic{grid-template-columns:1fr;gap:20px}
-  .pq-col-left,.pq-col-right{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .pq-col-center{padding:20px 0}
-  .pq-img-wrap{aspect-ratio:3/2}
-  .bonus-grid{grid-template-columns:1fr}
-  .cursos-header{grid-template-columns:1fr}
+  .pq-list{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
   .w,.foot{padding:0 24px}
-  nav{padding:18px 24px}
-  nav.scrolled{padding:12px 24px}
-  .logo-img{height:72px!important}
-  nav.scrolled .logo-img{height:58px!important}
-  .hero-glass-panel{padding:22px 24px!important; margin-top: 30px; width: 88%!important; max-width: 440px!important;}
-  .hero-h1,.hero-glass--light .hero-h1{font-size:22px!important; line-height:1.1!important;}
-  .hero-sub{font-size:12px!important; margin-top:10px; line-height: 1.5; max-width:100%!important;}
-  .hero-label,.hero-glass--light .hero-label{margin-bottom:4px; font-size: 8px!important;}
-  .hero-stats{flex-direction:row; gap:8px; margin-top: 8px; margin-bottom: 8px;}
-  .hs-item+.hs-item{border-left:1px solid rgba(255,255,255,.1); border-top:none; padding-top:0; padding-left: 8px;}
-  .hs-item{padding:0; gap: 2px;}
-  .hs-val,.hero-glass--light .hs-num{font-size: 14px!important;}
-  .hs-lbl{font-size: 7px!important;}
-  .btn-preco{padding: 16px 20px; font-size: 14px;}
+  nav{padding:20px 24px}
+  nav.scrolled{padding:14px 24px}
+  .hero-glass-panel{padding:14px 16px!important; margin-top: 30px; width: 72%!important; max-width: 280px!important;}
+      .hero-h1,.hero-glass--light .hero-h1{font-size:18px!important; line-height:1.1!important;}
+      .hero-sub,.hero-glass--light .hero-sub{font-size:10px!important; margin-top:6px; line-height: 1.3;}
+      .hero-label,.hero-glass--light .hero-label{margin-bottom:4px; font-size: 8px!important;}
+      .hero-stats{flex-direction:row; gap:8px; margin-top: 8px; margin-bottom: 8px;}
+      .hs-item+.hs-item{border-left:1px solid rgba(255,255,255,.1); border-top:none; padding-top:0; padding-left: 8px;}
+      .hs-item{padding:0; gap: 2px;}
+      .hs-val,.hero-glass--light .hs-num{font-size: 14px!important;}
+      .hs-lbl{font-size: 7px!important;}
+      .btn-preco{padding: 8px 12px; font-size: 9px;}
+  .pq-list,.bonus-grid{grid-template-columns:1fr}
+  .pq-item{border-bottom:1px solid var(--glass-border)}
+  .curso-grid{grid-template-columns:1fr}
   .ci.span2{grid-column:span 1}
-  .fund-photo-panel{min-height:420px}
+  .fund-layout{grid-template-columns:1fr}
+  .fund-photo-panel{min-height:380px}
   .preco-glass{padding:36px 24px}
   #manifesto,#sobre,#bonus,#preco{padding:100px 0}
-  #paraquem,#cursos,#fundadoras,#faq{padding:80px 0}
+  #paraquem,#cursos,#fundadoras,#faq{padding:100px 0}
   footer{padding:40px 0}
   .nav-r .nav-lnk{display:none}
-  .gallery-strip{height:160px}
 }
 </style>
 </head>
@@ -812,7 +780,7 @@ footer{
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="logo"><img src="logo-nacasa.png" alt="Clube naCASA" class="logo-img" width="200" height="72"></a>
+  <a href="#" class="logo"><img src="logo-nacasa.png" alt="Clube naCASA" class="logo-img" width="180" height="46"></a>
   <div class="nav-r">
     <a href="#sobre" class="nav-lnk">O clube</a>
     <a href="#cursos" class="nav-lnk">Cursos</a>
@@ -823,36 +791,57 @@ footer{
 
 <!-- ═══ HERO ═══ -->
 <section id="hero">
-  <div class="hero-img"><img src="35.png" alt=""></div>
+  <div class="hero-img"></div>
   <div class="hero-overlay"></div>
 
-  <div class="hero-glass-panel r tilt-glass" id="heroGlass">
-    <div class="hero-label">CLUBE DE DECORAÇÃO</div>
+  <div class="hero-glass-panel hero-glass--light r tilt-glass" id="heroGlass">
+    <div class="hero-label">MÉTODO COMPROVADO</div>
 
     <h1 class="hero-h1 r">
       Entenda por que tanta gente comum está aprendendo a decorar a própria casa com <span class="hero-accent">essa oportunidade</span>
     </h1>
 
     <p class="hero-sub">
-      Passo a passo para decorar com autonomia, sem depender de arquiteto caro — no seu ritmo e com apoio da comunidade.
+      Passo a passo para decorar com autonomia, sem depender de arquiteto caro e sem errar nas escolhas — no seu ritmo e com apoio da comunidade.
     </p>
 
     <div class="hero-stats">
       <div class="hs-item">
+        <div class="hs-num">+1000</div>
+        <div class="hs-lbl">Alunos transformados</div>
+      </div>
+      <div class="hs-item">
         <div class="hs-num">7 dias</div>
         <div class="hs-lbl">Garantia incondicional</div>
       </div>
-      <div class="hs-item">
-        <div class="hs-num">12x</div>
-        <div class="hs-lbl">R$&nbsp;39,90/mês</div>
-      </div>
     </div>
 
-    <div class="hero-ctas" style="flex-direction:column; gap:12px; margin-top:28px">
+    <div class="hero-ctas" style="flex-direction:column; gap:12px; margin-top:32px">
       <a href="#preco" class="btn-vendas">QUERO ENTRAR PARA O CLUBE</a>
       <span class="hero-secure">Compra segura · acesso imediato à plataforma</span>
     </div>
   </div>
+
+
+</section>
+
+<div class="hero-strip">
+  <div class="w hero-strip-inner">
+    <img src="fundadoras2.jpg" alt="Ambientes decorados no estilo naCASA">
+    <img src="print-plataforma-1.png" alt="Aulas e módulos na plataforma do clube">
+    <img src="print-plataforma-2.png" alt="Conteúdos e trilhas dentro da plataforma">
+    <img src="capas-modulos.png" alt="Capas dos módulos do Clube naCASA">
+  </div>
+</div>
+
+<section class="hero-video-block" aria-labelledby="video-heading">
+  <h2 id="video-heading" class="visually-hidden">Vídeo de apresentação</h2>
+  <p class="hero-video-intro">Assista o vídeo abaixo para entender como funciona o clube naCASA.</p>
+  <div class="video-embed-wrap">
+    <!-- Substitua o ID do embed pelo link oficial da cliente (YouTube → Compartilhar → Incorporar). -->
+    <iframe class="video-embed" src="https://www.youtube.com/embed/M7lc1UVf-VE?rel=0" title="Vídeo sobre o Clube naCASA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+  </div>
+  <p class="video-embed-note">Vídeo de exemplo para testar o player. Troque o endereço do <code>iframe</code> pelo embed definitivo quando tiver o link.</p>
 </section>
 
 <!-- MARQUEE -->
@@ -875,77 +864,22 @@ footer{
   </div>
 </div>
 
-<!-- ═══ GALLERY STRIP ═══ -->
-<div class="gallery-strip" aria-hidden="true">
-  <div class="gallery-strip-item">
-    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=600&q=80" alt="">
-  </div>
-  <div class="gallery-strip-item">
-    <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=600&q=80" alt="">
-  </div>
-  <div class="gallery-strip-item">
-    <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="">
-  </div>
-  <div class="gallery-strip-item">
-    <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=600&q=80" alt="">
-  </div>
-  <div class="gallery-strip-item">
-    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80" alt="">
-  </div>
-</div>
-
-
-<!-- ═══ VÍDEO ═══ -->
-<section class="video-section r">
-  <div class="w">
-    <p class="video-intro">Veja por dentro como funciona o clube naCASA</p>
-    <div class="video-wrap">
-      <video controls playsinline>
-        <source src="clube%20naCASA%20-%20plataforma%20de%20cursos%2C%20v%C3%ADdeo.mp4" type="video/mp4">
-      </video>
-    </div>
-  </div>
-</section>
 
 <!-- ═══ PARA QUEM ═══ -->
 <section id="paraquem">
   <div class="w">
     <div class="slbl light r">Feito para</div>
-    <div class="pq-mosaic r">
-
-      <!-- Left images -->
-      <div class="pq-col pq-col-left">
-        <div class="pq-img-wrap">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80" alt="Alugou um apartamento" loading="lazy">
-          <span class="pq-img-label">alugou um ap</span>
-        </div>
-        <div class="pq-img-wrap">
-          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80" alt="Comprou o primeiro apartamento" loading="lazy">
-          <span class="pq-img-label">comprou o 1º ap</span>
-        </div>
-      </div>
-
-      <!-- Center: big title -->
-      <div class="pq-col pq-col-center">
-        <div class="pq-big-title"><span>IDEAL</span><span class="pq-accent">PARA</span><span>QUEM</span></div>
-        <ul class="pq-extras-list">
-          <li>Quer descobrir seu estilo de decoração</li>
-          <li>Quer montar ou decorar sozinho algum ambiente da casa</li>
-        </ul>
-      </div>
-
-      <!-- Right images -->
-      <div class="pq-col pq-col-right">
-        <div class="pq-img-wrap">
-          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="Reforma total" loading="lazy">
-          <span class="pq-img-label">reforma total</span>
-        </div>
-        <div class="pq-img-wrap">
-          <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80" alt="Construir a casa da vida" loading="lazy">
-          <span class="pq-img-label">construir a casa da vida</span>
-        </div>
-      </div>
-
+    <div class="pq-header">
+      <h2 class="pq-h2 r">Feito para quem<br><em>quer decorar com sentido</em></h2>
+      <p class="pq-lead r r1">Seis perfis que encontram trilhas e apoio dentro do clube — no seu ritmo.</p>
+    </div>
+    <div class="pq-list r">
+      <div class="pq-item"><h3 class="pq-h">Morador de aluguel</h3><p class="pq-p">Personalizar o imóvel com cuidado ao contrato e ao caução.</p></div>
+      <div class="pq-item"><h3 class="pq-h">Primeiro apartamento</h3><p class="pq-p">Montar o primeiro lar com prioridades claras e menos erro.</p></div>
+      <div class="pq-item"><h3 class="pq-h">Estilo próprio</h3><p class="pq-p">Sair do “copia e cola” e definir a identidade visual da sua casa.</p></div>
+      <div class="pq-item"><h3 class="pq-h">Reforma ou construção</h3><p class="pq-p">Acompanhar fases e escolhas com mais segurança nas decisões.</p></div>
+      <div class="pq-item"><h3 class="pq-h">Montar ambiente sozinho</h3><p class="pq-p">Executar sozinho com método, lista e referências confiáveis.</p></div>
+      <div class="pq-item"><h3 class="pq-h">Autonomia no seu ritmo</h3><p class="pq-p">Estudar e aplicar quando couber na rotina, com comunidade ao lado.</p></div>
     </div>
   </div>
 </section>
@@ -958,7 +892,7 @@ footer{
     <div class="sobre-inner">
       <div class="sobre-left">
         <div class="slbl r">O clube</div>
-        <h2 class="sh2 r r1">Mais que um curso.<br><em>Uma comunidade.</em></h2>
+        <h2 class="sh2 r r1">Não é um curso.<br><em>É uma comunidade.</em></h2>
         <div class="sobre-body r r2">
           <p>Dentro da plataforma você encontra aulas para descobrir qual o seu estilo de decoração, sem correr o risco de ver sua casa igual a todas as da modinha.</p>
           <p>Você aprende de forma prática como decorar e fazer a manutenção do seu espaço nos mínimos detalhes. Através de conteúdo contínuo, você terá uma casa sempre compatível com a vida contemporânea.</p>
@@ -998,32 +932,36 @@ footer{
       <p class="cursos-lead r r1">Três eixos de fundação + trilhas por momento de vida e módulos que refinam o resultado.</p>
     </div>
 
+    <figure class="cursos-capas r r1">
+      <img src="capas-modulos.png" alt="Visão geral dos módulos e capas do Clube naCASA" width="1200" height="675" loading="lazy">
+    </figure>
+
     <div class="trilha r">
       <div class="trilha-hd"><span class="trilha-nm">Cursos básicos</span><span class="trilha-ct">Fundação · 3 eixos</span></div>
       <div class="curso-grid">
-        <div class="ci"><h3 class="ci-nm">Decorando cada ambiente</h3><p class="ci-d">Do quarto à varanda: harmonia, função e personalidade em cada cômodo.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
-        <div class="ci"><h3 class="ci-nm">Descobrindo seu estilo</h3><p class="ci-d">Defina a identidade visual da sua casa para fugir do genérico.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
-        <div class="ci"><h3 class="ci-nm">Melhoria visual</h3><p class="ci-d">Ajustes que elevam o espaço — composição, proporção e "cara de pronto" sem obra pesada.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
+        <div class="ci"><h3 class="ci-nm">Decorando cada ambiente</h3><p class="ci-d">Do quarto à varanda: harmonia, função e personalidade em cada cômodo.</p></div>
+        <div class="ci"><h3 class="ci-nm">Descobrindo seu estilo</h3><p class="ci-d">Defina a identidade visual da sua casa para fugir do genérico.</p></div>
+        <div class="ci"><h3 class="ci-nm">Melhoria visual</h3><p class="ci-d">Ajustes que elevam o espaço — composição, proporção e “cara de pronto” sem obra pesada.</p></div>
       </div>
     </div>
 
     <div class="trilha r">
       <div class="trilha-hd"><span class="trilha-nm">Cursos Específicos</span><span class="trilha-ct">Sua situação · 4 cursos</span></div>
       <div class="curso-grid">
-        <div class="ci"><h3 class="ci-nm">Aluguei um Apê</h3><p class="ci-d">Transforme um imóvel alugado com personalidade e sem perder o caução.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
-        <div class="ci"><h3 class="ci-nm">Comprei meu 1.º Apê</h3><p class="ci-d">Como mobiliar e decorar seu primeiro imóvel do jeito certo, de primeira.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
-        <div class="ci"><h3 class="ci-nm">Reforma Total</h3><p class="ci-d">Reformar sem estresse — evite erros caros e alcance o resultado que imaginou.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
-        <div class="ci"><h3 class="ci-nm">Construindo a Casa dos Sonhos</h3><p class="ci-d">Do terreno à decoração final — cada decisão com segurança e intenção.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
+        <div class="ci"><h3 class="ci-nm">Aluguei um Apê</h3><p class="ci-d">Transforme um imóvel alugado com personalidade e sem perder o caução.</p></div>
+        <div class="ci"><h3 class="ci-nm">Comprei meu 1.º Apê</h3><p class="ci-d">Como mobiliar e decorar seu primeiro imóvel do jeito certo, de primeira.</p></div>
+        <div class="ci"><h3 class="ci-nm">Reforma Total</h3><p class="ci-d">Reformar sem estresse — evite erros caros e alcance o resultado que imaginou.</p></div>
+        <div class="ci"><h3 class="ci-nm">Construindo a Casa dos Sonhos</h3><p class="ci-d">Do terreno à decoração final — cada decisão com segurança e intenção.</p></div>
       </div>
     </div>
 
     <div class="trilha r">
       <div class="trilha-hd"><span class="trilha-nm">Cursos Complementares</span><span class="trilha-ct">Vai além · 5+ cursos</span></div>
       <div class="curso-grid">
-        <div class="ci"><h3 class="ci-nm">Domine as Cores na Decor</h3><p class="ci-d">A paleta certa transforma qualquer ambiente. Aprenda a combinar cores com critério.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
-        <div class="ci"><h3 class="ci-nm">Iluminação Decorativa</h3><p class="ci-d">O segredo dos profissionais: como a iluminação muda a percepção de um espaço.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
-        <div class="ci"><h3 class="ci-nm">Truques Baixo Custo</h3><p class="ci-d">Casa bonita não precisa custar caro. Técnicas de profissional com orçamento real.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
-        <div class="ci"><h3 class="ci-nm">Móveis Coringas · Casa de Campo & Praia</h3><p class="ci-d">Peças versáteis e estilos para ambientes de veraneio.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
+        <div class="ci"><h3 class="ci-nm">Domine as Cores na Decor</h3><p class="ci-d">A paleta certa transforma qualquer ambiente. Aprenda a combinar cores com critério.</p></div>
+        <div class="ci"><h3 class="ci-nm">Iluminação Decorativa</h3><p class="ci-d">O segredo dos profissionais: como a iluminação muda a percepção de um espaço.</p></div>
+        <div class="ci"><h3 class="ci-nm">Truques Baixo Custo</h3><p class="ci-d">Casa bonita não precisa custar caro. Técnicas de profissional com orçamento real.</p></div>
+        <div class="ci"><h3 class="ci-nm">Móveis Coringas · Casa de Campo & Praia</h3><p class="ci-d">Peças versáteis e estilos para ambientes de veraneio.</p></div>
       </div>
     </div>
   </div>
@@ -1068,13 +1006,16 @@ footer{
     <div class="fund-layout">
       <div class="fund-text">
         <h2 class="sh2 r" style="margin-bottom:48px">As especialistas<br><em>por trás do clube</em></h2>
+        <div class="fund-photo-left r r1" style="width:100%; height:450px; background:url('fundadoras2.jpg') center top / cover no-repeat; border-radius:8px; margin-bottom: 32px; border:1px solid rgba(255,255,255,0.08);"></div>
         <div class="fund-cards r r1">
           <div class="fc">
+            <div class="fc-initial">A</div>
             <h3 class="fc-nome">Analu Guimarães</h3>
             <p class="fc-cargo">18 anos · Design de Interiores</p>
             <p class="fc-bio">Especialista em design de interiores com 18 anos de experiência, Analu já transformou centenas de lares pelo Brasil. Sua abordagem une estética refinada e funcionalidade real — respeitando sempre a história e o orçamento de cada cliente.</p>
           </div>
           <div class="fc">
+            <div class="fc-initial">L</div>
             <h3 class="fc-nome">Luiza Abreu</h3>
             <p class="fc-cargo">11 anos · Design de Interiores</p>
             <p class="fc-bio">Com 11 anos de experiência em projetos residenciais, Luiza é referência em decoração democrática — a arte de criar espaços lindos e autênticos para qualquer orçamento. Seu método didático faz a diferença para quem quer decorar com autonomia.</p>
@@ -1136,7 +1077,7 @@ footer{
       <div class="faq-list r r1">
         <div class="fi">
           <button class="fq"><span class="fq-t">Qual o valor da assinatura?</span><span class="fq-i"><svg width="10" height="10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg></span></button>
-          <div class="fa"><p class="fa-i">O clube naCASA custa 12x de R$&nbsp;39,90 ou R$&nbsp;478,80 à vista, com garantia incondicional de 7 dias após a compra.</p></div>
+          <div class="fa"><p class="fa-i">O clube naCASA custa 12x de R$&nbsp;39,90 ou R$&nbsp;478,80 à vista. Benefício de período de teste existe apenas para <strong>afiliados</strong>, conforme regras do programa; para demais assinantes, vale a garantia de 7 dias após a compra.</p></div>
         </div>
         <div class="fi">
           <button class="fq"><span class="fq-t">Como é feita a cobrança?</span><span class="fq-i"><svg width="10" height="10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg></span></button>
@@ -1144,7 +1085,7 @@ footer{
         </div>
         <div class="fi">
           <button class="fq"><span class="fq-t">Posso cancelar a qualquer momento?</span><span class="fq-i"><svg width="10" height="10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg></span></button>
-          <div class="fa"><p class="fa-i">Sim, sem multa e sem burocracia. O cancelamento pode ser feito a qualquer momento diretamente na plataforma.</p></div>
+          <div class="fa"><p class="fa-i">Sim, sem multa e sem ônus. No 1.º mês o cancelamento é total e imediato. A partir do 2.º mês existe uma meta mínima de 3 vendas/mês — 3 meses consecutivos abaixo geram desligamento automático, sem cobrança.</p></div>
         </div>
         <div class="fi">
           <button class="fq"><span class="fq-t">Tenho reembolso se não gostar?</span><span class="fq-i"><svg width="10" height="10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg></span></button>
@@ -1166,7 +1107,7 @@ footer{
 <!-- FOOTER -->
 <footer>
   <div class="foot">
-    <a href="#" class="foot-logo logo"><img src="logo-nacasa.png" alt="Clube naCASA" class="foot-logo-img" width="180" height="52"></a>
+    <a href="#" class="foot-logo logo"><img src="logo-nacasa.png" alt="Clube naCASA" class="foot-logo-img" width="160" height="40"></a>
     <p class="foot-copy">© 2026 Clube naCASA · Todos os direitos reservados</p>
     <a href="mailto:clubenacasa@gmail.com" class="foot-mail">clubenacasa@gmail.com</a>
   </div>
@@ -1206,6 +1147,7 @@ const fbIO = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.fb-section').forEach(el => fbIO.observe(el));
 
+/* image parallax on scroll inside fb-sections */
 const fbImgs = document.querySelectorAll('.fb-img');
 const onParallax = () => {
   fbImgs.forEach(img => {
@@ -1239,7 +1181,7 @@ if (supportsHover) {
     requestAnimationFrame(tick);
   };
   tick();
-  const hoverables = document.querySelectorAll('a, button, .pq-img-wrap, .ci, .bc, .fc, .fund-photo-panel, .sc-stat, .hs-item, .fi, [data-magnetic]');
+  const hoverables = document.querySelectorAll('a, button, .pq-item, .ci, .bc, .fc, .fund-photo-panel, .sc-stat, .hs-item, .fi, [data-magnetic]');
   hoverables.forEach(el => {
     el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
     el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
@@ -1267,7 +1209,7 @@ if (supportsHover) {
   });
 }
 
-/* ─── TILT GLASS — hero ──────────── */
+/* ─── TILT GLASS — hero & price ──────────── */
 if (supportsHover) {
   document.querySelectorAll('.tilt-glass').forEach(el => {
     let raf;
