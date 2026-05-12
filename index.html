@@ -155,11 +155,11 @@ nav.scrolled .nav-btn{
 }
 
 .hero-label{
-  font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.38em;text-transform:uppercase;
-  color:var(--peach);margin-bottom:20px;
+  font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.38em;text-transform:uppercase;
+  color:var(--cta);margin-bottom:20px;
   display:flex;align-items:center;justify-content:center;gap:12px;
 }
-.hero-label::before,.hero-label::after{content:'';width:36px;height:1px;background:var(--peach);opacity:.5}
+.hero-label::before,.hero-label::after{content:'';width:36px;height:1px;background:var(--cta);opacity:.7}
 
 .hero-h1{
   font-family:var(--serif);
@@ -175,9 +175,9 @@ nav.scrolled .nav-btn{
 }
 
 .hero-sub{
-  font-family:var(--sans);font-size:7px;font-weight:400;
-  color:rgba(243,237,228,.82);line-height:1.35;
-  margin:4px auto 0;max-width:140px;
+  font-family:var(--sans);font-size:clamp(13px,1.4vw,15px);font-weight:400;
+  color:rgba(243,237,228,.88);line-height:1.6;
+  margin:16px auto 0;max-width:420px;
 }
 
 /* hero — painel claro sobre foto escura */
@@ -781,7 +781,7 @@ footer{
   nav.scrolled .logo-img{height:58px!important}
   .hero-glass-panel{padding:22px 24px!important; margin-top: 30px; width: 88%!important; max-width: 440px!important;}
   .hero-h1,.hero-glass--light .hero-h1{font-size:22px!important; line-height:1.1!important;}
-  .hero-sub,.hero-glass--light .hero-sub{font-size:10px!important; margin-top:6px; line-height: 1.3;}
+  .hero-sub{font-size:12px!important; margin-top:10px; line-height: 1.5; max-width:100%!important;}
   .hero-label,.hero-glass--light .hero-label{margin-bottom:4px; font-size: 8px!important;}
   .hero-stats{flex-direction:row; gap:8px; margin-top: 8px; margin-bottom: 8px;}
   .hs-item+.hs-item{border-left:1px solid rgba(255,255,255,.1); border-top:none; padding-top:0; padding-left: 8px;}
