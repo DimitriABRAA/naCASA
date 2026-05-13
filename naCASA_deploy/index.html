@@ -120,10 +120,9 @@ nav.scrolled .nav-btn{
 
 /* cinematic background image with Ken Burns */
 .hero-img{
-  position:absolute;inset:0;
-  background:url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat;
-  transform:scale(1.08);
-  animation:kenburns 18s ease-in-out infinite alternate;
+  position:absolute;inset:0;width:100%;height:100%;
+  background:url('../fundo-hero.jpg') center top / cover no-repeat;
+  z-index:0;
 }
 @keyframes kenburns{
   from{transform:scale(1.08) translate(0,0)}
@@ -152,6 +151,7 @@ nav.scrolled .nav-btn{
     0 48px 120px rgba(0,0,0,.5),
     inset 0 1px 0 rgba(255,255,255,.12);
   text-align:center;
+  margin-top:340px;
 }
 .hero-glass-panel::before{
   content:'';position:absolute;inset:0;
@@ -248,7 +248,12 @@ nav.scrolled .nav-btn{
   max-width:760px;margin:0 auto 22px;line-height:1.55;padding:0 16px;
 }
 .video-embed-wrap{position:relative;max-width:920px;margin:0 auto;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:14px;border:1px solid var(--glass-border);box-shadow:0 24px 70px rgba(0,0,0,.08);background:#000}
-.video-embed{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid.hero-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center 0%;
+  background-color:#2a2520;
+  z-index:0;
+}
 .video-embed-note{text-align:center;margin-top:14px;font-size:12px;color:var(--text-soft);max-width:720px;margin-left:auto;margin-right:auto;padding:0 16px}
 
 /* scroll caret */
@@ -745,7 +750,7 @@ footer{
   .w,.foot{padding:0 24px}
   nav{padding:20px 24px}
   nav.scrolled{padding:14px 24px}
-  .hero-glass-panel{padding:20px 16px; margin-top: 50px; width: 95%; max-width: 360px;}
+  .hero-glass-panel{padding:20px 16px; margin-top: 280px; width: 95%; max-width: 360px;}
   .hero-h1{font-size:26px;}
   .hero-sub{font-size:13px; margin-top:12px; line-height: 1.5;}
   .hero-label{margin-bottom:16px; font-size: 9px;}
@@ -798,21 +803,21 @@ footer{
     <div class="hero-label">MÉTODO COMPROVADO</div>
 
     <h1 class="hero-h1 r">
-      Entenda por que tanta gente comum está aprendendo a decorar a própria casa com <span class="hero-accent">essa oportunidade</span>
+      Entenda por que tanta gente comum está aprendendo a <span class="hero-accent">decorar a própria casa</span> com essa oportunidade
     </h1>
 
     <p class="hero-sub">
-      Passo a passo para decorar com autonomia, sem depender de arquiteto caro e sem errar nas escolhas — no seu ritmo e com apoio da comunidade.
+      Passo a passo para decorar com autonomia, sem erros e dentro do seu estilo — no seu ritmo e com orientação profissional.
     </p>
 
     <div class="hero-stats">
       <div class="hs-item">
-        <div class="hs-num">+1000</div>
-        <div class="hs-lbl">Alunos transformados</div>
-      </div>
-      <div class="hs-item">
         <div class="hs-num">7 dias</div>
         <div class="hs-lbl">Garantia incondicional</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-num">12x</div>
+        <div class="hs-lbl">R$&nbsp;39,90/mês</div>
       </div>
     </div>
 
@@ -839,7 +844,7 @@ footer{
   <p class="hero-video-intro">Assista o vídeo abaixo para entender como funciona o clube naCASA.</p>
   <div class="video-embed-wrap">
     <!-- Substitua o ID do embed pelo link oficial da cliente (YouTube → Compartilhar → Incorporar). -->
-    <iframe class="video-embed" src="https://www.youtube.com/embed/M7lc1UVf-VE?rel=0" title="Vídeo sobre o Clube naCASA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+    <iframe class="video-embed" src="https://www.youtube.com/embed/mCPIPgHcmys" title="Vídeo sobre o Clube naCASA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
   </div>
   <p class="video-embed-note">Vídeo de exemplo para testar o player. Troque o endereço do <code>iframe</code> pelo embed definitivo quando tiver o link.</p>
 </section>
@@ -916,7 +921,7 @@ footer{
         </div>
         <div class="sc-stat">
           <div class="sc-val">∞</div>
-          <div class="sc-lbl">Conteúdo novo a cada mês</div>
+          <div class="sc-lbl">Conteúdo novo toda semana</div>
         </div>
       </div>
     </div>
@@ -961,7 +966,8 @@ footer{
         <div class="ci"><h3 class="ci-nm">Domine as Cores na Decor</h3><p class="ci-d">A paleta certa transforma qualquer ambiente. Aprenda a combinar cores com critério.</p></div>
         <div class="ci"><h3 class="ci-nm">Iluminação Decorativa</h3><p class="ci-d">O segredo dos profissionais: como a iluminação muda a percepção de um espaço.</p></div>
         <div class="ci"><h3 class="ci-nm">Truques Baixo Custo</h3><p class="ci-d">Casa bonita não precisa custar caro. Técnicas de profissional com orçamento real.</p></div>
-        <div class="ci"><h3 class="ci-nm">Móveis Coringas · Casa de Campo & Praia</h3><p class="ci-d">Peças versáteis e estilos para ambientes de veraneio.</p></div>
+        <div class="ci"><h3 class="ci-nm">Móveis Coringas</h3><p class="ci-d">Peças versáteis que funcionam e transformam qualquer ambiente.</p></div>
+        <div class="ci"><h3 class="ci-nm">Casa de Campo & Praia</h3><p class="ci-d">Estilos e curadoria para seus ambientes de veraneio.</p></div>
       </div>
     </div>
   </div>

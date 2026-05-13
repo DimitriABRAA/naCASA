@@ -120,15 +120,15 @@ nav.scrolled .nav-btn{
 
 .hero-img{
   position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:center 30%;
+  object-fit:cover;object-position:center 0%;
   background-color:#2a2520;
   z-index:0;
   will-change:transform;
   display:block;
 }
 @keyframes kenburns{
-  from{transform:scale(1.08) translate(0,0)}
-  to{transform:scale(1.0) translate(-1.5%,-.8%)}
+  from{transform:scale(1.2) translate(0,0)}
+  to{transform:scale(1.1) translate(-1.5%,-.8%)}
 }
 
 .hero-overlay{
@@ -150,6 +150,7 @@ nav.scrolled .nav-btn{
     0 48px 120px rgba(0,0,0,.5),
     inset 0 1px 0 rgba(255,255,255,.12);
   text-align:center;
+  margin-top:360px;
 }
 .hero-glass-panel::before{
   content:'';position:absolute;inset:0;
@@ -786,7 +787,7 @@ footer{
   nav.scrolled{padding:12px 24px}
   .logo-img{height:72px!important}
   nav.scrolled .logo-img{height:58px!important}
-  .hero-glass-panel{padding:22px 24px!important; margin-top: 30px; width: 88%!important; max-width: 440px!important;}
+  .hero-glass-panel{padding:22px 24px!important; margin-top: 320px; width: 88%!important; max-width: 440px!important;}
   .hero-h1,.hero-glass--light .hero-h1{font-size:22px!important; line-height:1.1!important;}
   .hero-sub{font-size:12px!important; margin-top:10px; line-height: 1.5; max-width:100%!important;}
   .hero-label,.hero-glass--light .hero-label{margin-bottom:4px; font-size: 8px!important;}
@@ -836,11 +837,11 @@ footer{
     <div class="hero-label">CLUBE DE DECORAÇÃO</div>
 
     <h1 class="hero-h1 r">
-      Entenda por que tanta gente comum está aprendendo a decorar a própria casa com <span class="hero-accent">essa oportunidade</span>
+      Entenda por que tanta gente comum está aprendendo a <span class="hero-accent">decorar a própria casa</span> com essa oportunidade
     </h1>
 
     <p class="hero-sub">
-      Passo a passo para decorar com autonomia, sem depender de arquiteto caro — no seu ritmo e com apoio da comunidade.
+      Passo a passo para decorar com autonomia, sem erros e dentro do seu estilo — no seu ritmo e com orientação profissional.
     </p>
 
     <div class="hero-stats">
@@ -869,14 +870,14 @@ footer{
     <div class="mi">Seu estilo, sua casa <span class="mdot"></span></div>
     <div class="mi">Consultoria ao vivo <span class="mdot"></span></div>
     <div class="mi">Comunidade que troca dicas reais <span class="mdot"></span></div>
-    <div class="mi">Conteúdo novo todo mês <span class="mdot"></span></div>
+    <div class="mi">Conteúdo novo toda semana <span class="mdot"></span></div>
     <div class="mi">Clube naCASA <span class="mdot"></span></div>
     <div class="mi">Design de interiores <span class="mdot"></span></div>
     <div class="mi">Autonomia para decorar <span class="mdot"></span></div>
     <div class="mi">Seu estilo, sua casa <span class="mdot"></span></div>
     <div class="mi">Consultoria ao vivo <span class="mdot"></span></div>
     <div class="mi">Comunidade que troca dicas reais <span class="mdot"></span></div>
-    <div class="mi">Conteúdo novo todo mês <span class="mdot"></span></div>
+    <div class="mi">Conteúdo novo toda semana <span class="mdot"></span></div>
     <div class="mi">Clube naCASA <span class="mdot"></span></div>
   </div>
 </div>
@@ -906,9 +907,7 @@ footer{
   <div class="w">
     <p class="video-intro">Veja por dentro como funciona o clube naCASA</p>
     <div class="video-wrap">
-      <video controls playsinline>
-        <source src="clube%20naCASA%20-%20plataforma%20de%20cursos%2C%20v%C3%ADdeo.mp4" type="video/mp4">
-      </video>
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/mCPIPgHcmys" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-view; web-share" allowfullscreen style="border-radius:12px; aspect-ratio: 16/9;"></iframe>
     </div>
   </div>
 </section>
@@ -988,7 +987,7 @@ footer{
         </div>
         <div class="sc-stat">
           <div class="sc-val">∞</div>
-          <div class="sc-lbl">Conteúdo novo a cada mês</div>
+          <div class="sc-lbl">Conteúdo novo toda semana</div>
         </div>
       </div>
     </div>
@@ -1001,7 +1000,7 @@ footer{
     <div class="slbl light r"><span class="num">04</span> — Conteúdo</div>
     <div class="cursos-header">
       <h2 class="cursos-h2 r">O que você<br><em>vai aprender</em></h2>
-      <p class="cursos-lead r r1">Três eixos de fundação + trilhas por momento de vida e módulos que refinam o resultado.</p>
+      <p class="cursos-lead r r1">Três eixos fundamentais para sua jornada, com trilhas pensadas para o seu momento de vida e aulas que refinam cada detalhe.</p>
     </div>
 
     <div class="trilha r">
@@ -1009,7 +1008,7 @@ footer{
       <div class="curso-grid">
         <div class="ci"><h3 class="ci-nm">Decorando cada ambiente</h3><p class="ci-d">Do quarto à varanda: harmonia, função e personalidade em cada cômodo.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
         <div class="ci"><h3 class="ci-nm">Descobrindo seu estilo</h3><p class="ci-d">Defina a identidade visual da sua casa para fugir do genérico.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
-        <div class="ci"><h3 class="ci-nm">Melhoria visual</h3><p class="ci-d">Ajustes que elevam o espaço — composição, proporção e "cara de pronto" sem obra pesada.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
+        <div class="ci"><h3 class="ci-nm">Melhoria visual</h3><p class="ci-d">Ajustes que elevam o espaço — composição, proporção e "cara de pronto" sem obra pesada.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
       </div>
     </div>
 
@@ -1019,17 +1018,18 @@ footer{
         <div class="ci"><h3 class="ci-nm">Aluguei um Apê</h3><p class="ci-d">Transforme um imóvel alugado com personalidade e sem perder o caução.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
         <div class="ci"><h3 class="ci-nm">Comprei meu 1.º Apê</h3><p class="ci-d">Como mobiliar e decorar seu primeiro imóvel do jeito certo, de primeira.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
         <div class="ci"><h3 class="ci-nm">Reforma Total</h3><p class="ci-d">Reformar sem estresse — evite erros caros e alcance o resultado que imaginou.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
-        <div class="ci"><h3 class="ci-nm">Construindo a Casa dos Sonhos</h3><p class="ci-d">Do terreno à decoração final — cada decisão com segurança e intenção.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
+        <div class="ci"><h3 class="ci-nm">Interiores para construção</h3><p class="ci-d">Do terreno à decoração final — cada decisão com segurança e intenção.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
       </div>
     </div>
 
     <div class="trilha r">
-      <div class="trilha-hd"><span class="trilha-nm">Cursos Complementares</span><span class="trilha-ct">Vai além · 5+ cursos</span></div>
+      <div class="trilha-hd"><span class="trilha-nm">Aulas Complementares</span><span class="trilha-ct">Vai além · 5+ cursos</span></div>
       <div class="curso-grid">
         <div class="ci"><h3 class="ci-nm">Domine as Cores na Decor</h3><p class="ci-d">A paleta certa transforma qualquer ambiente. Aprenda a combinar cores com critério.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
         <div class="ci"><h3 class="ci-nm">Iluminação Decorativa</h3><p class="ci-d">O segredo dos profissionais: como a iluminação muda a percepção de um espaço.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
         <div class="ci"><h3 class="ci-nm">Truques Baixo Custo</h3><p class="ci-d">Casa bonita não precisa custar caro. Técnicas de profissional com orçamento real.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
-        <div class="ci"><h3 class="ci-nm">Móveis Coringas · Casa de Campo & Praia</h3><p class="ci-d">Peças versáteis e estilos para ambientes de veraneio.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
+        <div class="ci"><h3 class="ci-nm">Móveis Coringas</h3><p class="ci-d">Peças versáteis que funcionam e transformam qualquer ambiente.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
+        <div class="ci"><h3 class="ci-nm">Casa de Campo & Praia</h3><p class="ci-d">Estilos, materiais e curadoria para seus ambientes de veraneio.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
       </div>
     </div>
   </div>
@@ -1053,7 +1053,7 @@ footer{
         <div class="bc">
           <div class="bc-idx">Bônus Exclusivo</div>
           <h3 class="bc-h"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px; vertical-align:text-bottom; color:var(--cta);"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg> Artes Gráficas Exclusivas</h3>
-          <p class="bc-p">Peças gráficas criadas por Analu Guimarães para uso na sua decoração. Criações únicas que elevam qualquer ambiente com identidade e intenção.</p>
+          <p class="bc-p">Peças gráficas criadas por Analu Guimarães para uso na sua decoração.</p>
           <span class="bc-tag">Arte original</span>
         </div>
         <div class="bc">
@@ -1110,8 +1110,9 @@ footer{
 
     <div class="preco-glass">
       <div class="preco-highlight">
-        <div class="preco-parcelas">Investimento em até <span class="preco-parcelas-val">12x R$&nbsp;39,90</span></div>
-        <div class="preco-vista">ou R$&nbsp;478,80 à vista</div>
+        <div class="preco-parcelas">12x de</div>
+        <div class="preco-parcelas-val">R$&nbsp;39,90</div>
+        <div class="preco-vista">ou pagamento anual à vista</div>
       </div>
       <div class="preco-tags">
         <span class="ptag">Acesso imediato</span>
@@ -1142,7 +1143,7 @@ footer{
       <div class="faq-list r r1">
         <div class="fi">
           <button class="fq"><span class="fq-t">Qual o valor da assinatura?</span><span class="fq-i"><svg width="10" height="10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg></span></button>
-          <div class="fa"><p class="fa-i">O clube naCASA custa 12x de R$&nbsp;39,90 ou R$&nbsp;478,80 à vista, com garantia incondicional de 7 dias após a compra.</p></div>
+          <div class="fa"><p class="fa-i">A assinatura do clube custa apenas 12x de R$ 39,90. Você garante acesso a todos os cursos, bônus e encontros mensais.</p></div>
         </div>
         <div class="fi">
           <button class="fq"><span class="fq-t">Como é feita a cobrança?</span><span class="fq-i"><svg width="10" height="10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg></span></button>
