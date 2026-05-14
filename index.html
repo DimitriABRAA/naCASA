@@ -355,81 +355,123 @@ nav.scrolled .nav-btn{
   .ad-compare{aspect-ratio:3/2}
 }
 
-/* ─── DEPOIMENTOS GOOGLE ─────────────────── */
-#depoimentos{padding:104px 0 112px;background:var(--page-bg)}
-.dp-head{text-align:center;max-width:720px;margin:0 auto 16px;padding:0 24px}
+/* ─── DEPOIMENTOS — GOOGLE REVIEWS CAROUSEL ─ */
+#depoimentos{padding:100px 0 110px;background:var(--page-bg-2);overflow:hidden}
+.dp-head{text-align:center;max-width:860px;margin:0 auto 14px;padding:0 24px}
 .dp-h2{
-  font-family:var(--font-title);font-size:clamp(34px,5vw,60px);font-weight:900;
-  text-transform:uppercase;letter-spacing:-.01em;line-height:1;color:var(--text);
+  font-family:var(--font-title);font-size:clamp(26px,3.6vw,44px);font-weight:900;
+  text-transform:uppercase;letter-spacing:-.01em;line-height:1.08;color:var(--text);
 }
 .dp-h2 em{font-style:normal;color:var(--peach)}
-.dp-sub{
-  font-family:var(--sans);font-size:clamp(15px,1.7vw,17px);font-weight:500;
-  color:var(--text-soft);line-height:1.6;margin-top:18px;
+/* google summary bar */
+.dp-gbar{
+  display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;
+  margin:26px auto 50px;padding:16px 28px;width:max-content;max-width:94%;
+  background:var(--surface);border:1px solid var(--glass-border);border-radius:14px;
+  box-shadow:0 14px 40px rgba(0,0,0,.07);
 }
-/* google rating badge */
-.dp-badge{
-  display:flex;align-items:center;justify-content:center;gap:14px;
-  margin:30px auto 56px;padding:14px 26px;width:max-content;max-width:92%;
-  background:var(--surface);border:1px solid var(--glass-border);
-  box-shadow:0 12px 36px rgba(0,0,0,.06);
-}
-.dp-badge-g{display:flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:700;font-size:14px;color:var(--text)}
-.dp-badge-g svg{width:20px;height:20px;flex-shrink:0}
-.dp-badge-div{width:1px;height:30px;background:var(--glass-border)}
-.dp-badge-stars{display:flex;align-items:center;gap:8px}
-.dp-badge-stars .dp-stars-row{display:flex;gap:1px}
-.dp-badge-txt{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--text-soft)}
-.dp-badge-txt b{color:var(--text);font-weight:800}
-/* stars */
-.dp-stars{display:flex;gap:2px;margin-bottom:18px}
-.dp-stars svg{width:17px;height:17px}
+.dp-gbar-logo{display:flex;align-items:center;gap:10px}
+.dp-gbar-logo svg{width:26px;height:26px;flex-shrink:0}
+.dp-gbar-logo b{font-family:var(--sans);font-weight:800;font-size:16px;color:var(--text)}
+.dp-gbar-div{width:1px;height:34px;background:var(--glass-border)}
+.dp-gbar-rate{display:flex;flex-direction:column;gap:3px}
+.dp-gbar-stars{display:flex;gap:2px}
+.dp-gbar-stars svg{width:18px;height:18px}
+.dp-gbar-cap{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--text-soft)}
+.dp-gbar-cap b{color:var(--text);font-weight:800}
 .dp-star-fill{fill:#FBBC05}
-/* grid */
-.dp-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
-  max-width:1280px;margin:0 auto;padding:0 40px;
+
+/* carousel shell */
+.dp-carousel{position:relative;max-width:1280px;margin:0 auto;padding:0 64px}
+.dp-viewport{overflow:hidden}
+.dp-track{
+  display:flex;gap:26px;
+  transition:transform .6s var(--ease-out);will-change:transform;
 }
+.dp-slide{flex:0 0 calc((100% - 52px)/3);min-width:0}
+
+/* review card — WP-google-reviews style */
 .dp-card{
-  background:var(--surface);border:1px solid var(--glass-border);
-  padding:32px 30px;display:flex;flex-direction:column;
-  box-shadow:0 14px 40px rgba(0,0,0,.05);
-  transition:transform .5s var(--ease-out), box-shadow .5s var(--ease-out);
-  position:relative;
+  background:var(--surface);border:1px solid var(--glass-border);border-radius:14px;
+  padding:26px 26px 24px;display:flex;flex-direction:column;height:100%;
+  box-shadow:0 10px 30px rgba(0,0,0,.05);position:relative;
 }
-.dp-card:hover{transform:translateY(-6px);box-shadow:0 26px 60px rgba(0,0,0,.1)}
+.dp-card-top{display:flex;align-items:center;gap:13px;margin-bottom:14px}
+.dp-ava-wrap{position:relative;flex-shrink:0}
+.dp-ava{
+  width:48px;height:48px;border-radius:50%;object-fit:cover;display:block;
+  background:var(--cream-2);
+}
+.dp-ava-g{
+  position:absolute;right:-3px;bottom:-3px;width:20px;height:20px;border-radius:50%;
+  background:#fff;border:1px solid var(--glass-border);
+  display:flex;align-items:center;justify-content:center;
+}
+.dp-ava-g svg{width:12px;height:12px}
+.dp-id{display:flex;flex-direction:column;gap:2px;min-width:0}
+.dp-name{font-family:var(--sans);font-size:15px;font-weight:800;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dp-when{font-family:var(--sans);font-size:12px;font-weight:500;color:var(--text-soft)}
+.dp-row-stars{display:flex;gap:2px;margin-bottom:12px}
+.dp-row-stars svg{width:16px;height:16px}
 .dp-quote{
-  font-family:var(--sans);font-size:15px;font-weight:500;line-height:1.65;
+  font-family:var(--sans);font-size:14.5px;font-weight:500;line-height:1.62;
   color:var(--text);flex:1;
 }
-.dp-foot{display:flex;align-items:center;gap:13px;margin-top:24px;padding-top:22px;border-top:1px solid var(--glass-border)}
-.dp-avatar{
-  width:44px;height:44px;flex-shrink:0;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-title);font-size:19px;font-weight:900;color:#fff;
+.dp-quote.clamp{display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}
+.dp-verified{
+  display:flex;align-items:center;gap:6px;margin-top:16px;
+  font-family:var(--sans);font-size:11px;font-weight:600;color:var(--text-soft);
 }
-.dp-meta{display:flex;flex-direction:column;gap:2px;min-width:0}
-.dp-name{font-family:var(--sans);font-size:14px;font-weight:800;color:var(--text)}
-.dp-src{display:flex;align-items:center;gap:5px;font-family:var(--sans);font-size:11px;font-weight:600;color:var(--text-soft)}
-.dp-src svg{width:13px;height:13px}
-.dp-gmark{position:absolute;top:28px;right:28px;width:22px;height:22px;opacity:.9}
-.dp-cta-wrap{text-align:center;margin-top:52px}
+.dp-verified svg{width:13px;height:13px}
+
+/* arrows */
+.dp-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:46px;height:46px;border-radius:50%;
+  background:var(--surface);border:1px solid var(--glass-border);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  box-shadow:0 8px 24px rgba(0,0,0,.1);z-index:3;
+  transition:background .3s var(--ease), transform .3s var(--ease-out), opacity .3s;
+}
+.dp-arrow:hover{background:var(--cta);transform:translateY(-50%) scale(1.06)}
+.dp-arrow:hover svg{stroke:#fff}
+.dp-arrow svg{width:18px;height:18px;stroke:var(--text);transition:stroke .3s}
+.dp-arrow-prev{left:0}
+.dp-arrow-next{right:0}
+
+/* dots + cta */
+.dp-foot-row{
+  display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;
+  margin-top:44px;
+}
+.dp-dots{display:flex;gap:8px}
+.dp-dot{
+  width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;
+  background:rgba(26,26,26,.2);transition:background .3s, width .3s var(--ease-out);
+}
+.dp-dot.active{background:var(--cta);width:24px;border-radius:4px}
 .dp-cta{
-  display:inline-flex;align-items:center;gap:11px;
-  padding:17px 34px;background:var(--cta);color:#fff;
-  font-family:var(--sans);font-size:13px;font-weight:800;letter-spacing:.04em;
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 30px;background:var(--cta);color:#fff;border-radius:10px;
+  font-family:var(--sans);font-size:12px;font-weight:800;letter-spacing:.04em;
   text-transform:uppercase;border:1px solid var(--cta);
   transition:background .35s var(--ease), transform .35s var(--ease-out);
 }
 .dp-cta:hover{background:var(--cta-h);transform:translateY(-2px)}
-.dp-cta svg{width:16px;height:16px}
+.dp-cta svg{width:15px;height:15px}
+
 @media(max-width:1024px){
-  .dp-grid{grid-template-columns:repeat(2,1fr);max-width:760px;padding:0 24px}
+  .dp-slide{flex:0 0 calc((100% - 26px)/2)}
+  .dp-carousel{padding:0 56px}
 }
 @media(max-width:680px){
-  .dp-grid{grid-template-columns:1fr;max-width:480px}
-  .dp-badge{flex-direction:column;gap:12px}
-  .dp-badge-div{width:60px;height:1px}
+  .dp-slide{flex:0 0 100%}
+  .dp-carousel{padding:0 16px}
+  .dp-arrow{width:40px;height:40px}
+  .dp-arrow-prev{left:-4px}
+  .dp-arrow-next{right:-4px}
+  .dp-gbar{flex-direction:column;gap:14px}
+  .dp-gbar-div{width:70px;height:1px}
 }
 
 /* ─── FULLBLEED HELPER ───────────────────── */
@@ -1035,7 +1077,7 @@ footer{
 <!-- ═══ ANTES E DEPOIS ═══ -->
 <section id="antesdepois" class="r">
   <div class="ad-head">
-    <h2 class="ad-h2">Antes <em>&</em> Depois</h2>
+    <h2 class="ad-h2">Veja como nossos clientes saíram do <em>caos total</em> para alcançar esses resultados:</h2>
     <p class="ad-sub">Transformações reais de quem aprendeu a decorar com autonomia. Arraste para revelar o resultado.</p>
   </div>
   <div class="ad-grid">
@@ -1092,122 +1134,40 @@ footer{
   </p>
 </section>
 
-<!-- ═══ DEPOIMENTOS GOOGLE ═══ -->
+<!-- ═══ DEPOIMENTOS — GOOGLE REVIEWS CAROUSEL ═══ -->
 <section id="depoimentos" class="r">
   <div class="dp-head">
-    <h2 class="dp-h2">Quem viveu, <em>recomenda</em></h2>
-    <p class="dp-sub">Avaliações 5 estrelas reais de clientes no Google — pessoas comuns que transformaram a própria casa.</p>
+    <h2 class="dp-h2">Eles são pessoas como você e, sob nossa orientação, <em>conseguiram esses resultados.</em></h2>
   </div>
 
-  <div class="dp-badge r r1">
-    <span class="dp-badge-g">
+  <div class="dp-gbar">
+    <span class="dp-gbar-logo">
       <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34A21.99 21.99 0 0 0 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
-      Google
+      <b>Avaliações no Google</b>
     </span>
-    <span class="dp-badge-div"></span>
-    <span class="dp-badge-stars">
-      <span class="dp-stars-row">
-        <svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg>
-        <svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg>
-        <svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg>
-        <svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg>
-        <svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg>
-      </span>
-      <span class="dp-badge-txt"><b>Avaliações 5 estrelas</b> · clientes verificados no Google</span>
+    <span class="dp-gbar-div"></span>
+    <span class="dp-gbar-rate">
+      <span class="dp-gbar-stars" id="dpGbarStars"></span>
+      <span class="dp-gbar-cap"><b>Depoimentos 5 estrelas</b> de clientes verificados</span>
     </span>
   </div>
 
-  <div class="dp-grid r r2">
-
-    <div class="dp-card">
-      <div class="dp-stars">
-        <svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg>
-      </div>
-      <p class="dp-quote">"A Nalupa conseguiu captar os nossos sentimentos e traduzir em design. Alguns ambientes foram incrivelmente surpreendentes e expressam exatamente o conceito de vida e lar que temos."</p>
-      <div class="dp-foot">
-        <div class="dp-avatar" style="background:#5B8DEF">G</div>
-        <div class="dp-meta">
-          <span class="dp-name">Gustavo Henrique de Almeida</span>
-          <span class="dp-src"><svg viewBox="0 0 48 48"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34A21.99 21.99 0 0 0 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg> Avaliação no Google</span>
-        </div>
-      </div>
+  <div class="dp-carousel r r1">
+    <button class="dp-arrow dp-arrow-prev" id="dpPrev" aria-label="Anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="dp-viewport">
+      <div class="dp-track" id="dpTrack"></div>
     </div>
-
-    <div class="dp-card">
-      <div class="dp-stars">
-        <svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg>
-      </div>
-      <p class="dp-quote">"A Ana é uma querida, atenciosa e competente — supriu minhas expectativas! Em pouco tempo saí de um ap vazio e sem graça pra um ap com alma! E o melhor: dentro do meu orçamento!"</p>
-      <div class="dp-foot">
-        <div class="dp-avatar" style="background:#D97736">R</div>
-        <div class="dp-meta">
-          <span class="dp-name">R. Ferrari</span>
-          <span class="dp-src"><svg viewBox="0 0 48 48"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34A21.99 21.99 0 0 0 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg> Avaliação no Google</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="dp-card">
-      <div class="dp-stars">
-        <svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg>
-      </div>
-      <p class="dp-quote">"A Ana da Na Lupa tem um olhar crítico diferenciado para os projetos. O seu olhar é de extrema sutileza, elegância, e traz ao ambiente as características dos contratantes com aquele toque moderno e atemporal."</p>
-      <div class="dp-foot">
-        <div class="dp-avatar" style="background:#7D6B9E">M</div>
-        <div class="dp-meta">
-          <span class="dp-name">Mariana Mascarenhas</span>
-          <span class="dp-src"><svg viewBox="0 0 48 48"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34A21.99 21.99 0 0 0 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg> Local Guide · Google</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="dp-card">
-      <div class="dp-stars">
-        <svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg>
-      </div>
-      <p class="dp-quote">"Fiquei impressionada com o serviço da Nalupa Design! Conseguiram unir perfeitamente dois estilos diferentes e criar um projeto que tanto eu quanto meu marido amamos. O cuidado e a eficiência foram excepcionais. Recomendo sempre!"</p>
-      <div class="dp-foot">
-        <div class="dp-avatar" style="background:#C9596B">V</div>
-        <div class="dp-meta">
-          <span class="dp-name">Viviane Sachs</span>
-          <span class="dp-src"><svg viewBox="0 0 48 48"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34A21.99 21.99 0 0 0 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg> Avaliação no Google</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="dp-card">
-      <div class="dp-stars">
-        <svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg>
-      </div>
-      <p class="dp-quote">"Realizar a consultoria com a Na Lupa foi uma das melhores experiências após adquirir meu apartamento — um momento de descobertas sobre estilo e o ambiente que desejo. Ter esse apoio foi fundamental."</p>
-      <div class="dp-foot">
-        <div class="dp-avatar" style="background:#4A75A6">M</div>
-        <div class="dp-meta">
-          <span class="dp-name">Maisa Ribeiro</span>
-          <span class="dp-src"><svg viewBox="0 0 48 48"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34A21.99 21.99 0 0 0 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg> Avaliação no Google</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="dp-card">
-      <div class="dp-stars">
-        <svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg><svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg>
-      </div>
-      <p class="dp-quote">"Experiência muito boa!!! Tudo correu muito bem — desde a consulta até a execução final, meus desejos foram muito bem entendidos pela AnaLu. Indico a todos, é muito eficiente e prestativa."</p>
-      <div class="dp-foot">
-        <div class="dp-avatar" style="background:#3F9D6B">E</div>
-        <div class="dp-meta">
-          <span class="dp-name">Edilamar Lopes</span>
-          <span class="dp-src"><svg viewBox="0 0 48 48"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34A21.99 21.99 0 0 0 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg> Avaliação no Google</span>
-        </div>
-      </div>
-    </div>
-
+    <button class="dp-arrow dp-arrow-next" id="dpNext" aria-label="Próximo">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
   </div>
 
-  <div class="dp-cta-wrap r r3">
+  <div class="dp-foot-row r r2">
+    <div class="dp-dots" id="dpDots"></div>
     <a class="dp-cta" href="https://www.google.com/search?q=nalupa+design#lrd=0xa6907b28c34975:0x75973519637274fb,1" target="_blank" rel="noopener noreferrer">
-      Ver todas as avaliações no Google
+      Ver todas no Google
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
   </div>
@@ -1649,6 +1609,142 @@ document.querySelectorAll('[data-compare]').forEach(box => {
   }, { threshold: 0.5 });
   teaseIO.observe(box);
 });
+
+/* ─── DEPOIMENTOS — Google reviews carousel ─── */
+(function(){
+  var track = document.getElementById('dpTrack');
+  if(!track) return;
+
+  var reviews = [
+    {n:"Gustavo Henrique de Almeida", img:"depoimentos/gustavo.jpg", badge:"Local Guide", when:"Avaliação no Google",
+     t:"A Nalupa conseguiu captar os nossos sentimentos e traduzir em design. Alguns ambientes foram incrivelmente surpreendentes e expressam exatamente o conceito de vida e lar que temos."},
+    {n:"R. Ferrari", img:"depoimentos/ferrari.jpg", badge:"", when:"Avaliação no Google",
+     t:"A Ana é uma querida, atenciosa e competente — supriu minhas expectativas! Em pouco tempo saí de um ap vazio e sem graça pra um ap com alma! E o melhor: dentro do meu orçamento!"},
+    {n:"Mariana Mascarenhas", img:"depoimentos/mariana.jpg", badge:"Local Guide", when:"Avaliação no Google",
+     t:"A Ana da Na Lupa tem um olhar crítico diferenciado para os projetos. O seu olhar é de extrema sutileza, elegância, e traz ao ambiente as características dos contratantes com aquele toque moderno e atemporal."},
+    {n:"Viviane Sachs", img:"depoimentos/viviane.jpg", badge:"", when:"Avaliação no Google",
+     t:"Fiquei impressionada com o serviço da Nalupa Design! Conseguiram unir perfeitamente dois estilos diferentes e criar um projeto que tanto eu quanto meu marido amamos. O cuidado e a eficiência foram excepcionais. Recomendo sempre!"},
+    {n:"Maisa Ribeiro", img:"depoimentos/maisa.jpg", badge:"", when:"Avaliação no Google",
+     t:"Realizar a consultoria com a Na Lupa foi uma das melhores experiências após adquirir meu apartamento — um momento de descobertas sobre estilo e o ambiente que desejo. Ter esse apoio foi fundamental."},
+    {n:"Gabriel Chamon", img:"depoimentos/gabriel.jpg", badge:"Local Guide", when:"Avaliação no Google",
+     t:"Entende muito bem os desejos e limites do cliente, entregando um resultado que é elegante e muito pessoal! Recomendo de olhos fechados."},
+    {n:"Vitor G.", img:"depoimentos/vitor.jpg", badge:"", when:"Avaliação no Google",
+     t:"A experiência com a Na Lupa foi positiva. Reformamos salas, transformando-as em studios — a qualidade e o bom gosto do projeto final foram aprovados pela grande maioria de hóspedes e inquilinos."},
+    {n:"Edilamar Lopes", img:"depoimentos/edilamar.jpg", badge:"", when:"Avaliação no Google",
+     t:"Experiência muito boa!!! Tudo correu muito bem — desde a consulta até a execução final, meus desejos foram muito bem entendidos pela AnaLu. Indico a todos, é muito eficiente e prestativa."},
+    {n:"Fabiana Oliveira", img:"depoimentos/fabiana.jpg", badge:"", when:"Avaliação no Google",
+     t:"Super indico a consultoria da AnaLu — ela me ajudou a identificar meu estilo, e isso fez toda a diferença não só no projeto da minha sala, mas da minha vida! Não vão se arrepender desse investimento."},
+    {n:"Lory Oliveira", img:"depoimentos/lory.jpg", badge:"Local Guide", when:"Avaliação no Google",
+     t:"A minha experiência com a Na Lupa design foi incrível! Atenta às necessidades pessoais e eficaz no serviço. Recomendo!"}
+  ];
+
+  var STAR = '<svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg>';
+  var GMARK = '<svg viewBox="0 0 48 48"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34A21.99 21.99 0 0 0 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>';
+  var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
+
+  document.getElementById('dpGbarStars').innerHTML = STAR.repeat(5);
+
+  reviews.forEach(function(r){
+    var slide = document.createElement('div');
+    slide.className = 'dp-slide';
+    slide.innerHTML =
+      '<div class="dp-card">' +
+        '<div class="dp-card-top">' +
+          '<div class="dp-ava-wrap">' +
+            '<img class="dp-ava" src="'+r.img+'" alt="Foto de '+r.n+'" loading="lazy" width="48" height="48">' +
+            '<span class="dp-ava-g">'+GMARK+'</span>' +
+          '</div>' +
+          '<div class="dp-id">' +
+            '<span class="dp-name">'+r.n+'</span>' +
+            '<span class="dp-when">'+(r.badge ? r.badge+' · ' : '')+r.when+'</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="dp-row-stars">'+STAR.repeat(5)+'</div>' +
+        '<p class="dp-quote clamp">'+r.t+'</p>' +
+        '<div class="dp-verified">'+CHECK+' Avaliação verificada</div>' +
+      '</div>';
+    track.appendChild(slide);
+  });
+
+  var prev = document.getElementById('dpPrev');
+  var next = document.getElementById('dpNext');
+  var dotsWrap = document.getElementById('dpDots');
+  var slides = track.children;
+  var total = slides.length;
+
+  function perView(){
+    var w = innerWidth;
+    if(w <= 680) return 1;
+    if(w <= 1024) return 2;
+    return 3;
+  }
+
+  var index = 0, pv = perView(), pages = Math.ceil(total / pv);
+
+  function buildDots(){
+    dotsWrap.innerHTML = '';
+    pages = Math.ceil(total / pv);
+    for(var i=0;i<pages;i++){
+      var d = document.createElement('button');
+      d.className = 'dp-dot' + (i===0?' active':'');
+      d.setAttribute('aria-label','Página '+(i+1));
+      (function(p){ d.addEventListener('click', function(){ go(p*pv); }); })(i);
+      dotsWrap.appendChild(d);
+    }
+  }
+
+  function update(){
+    var slide = slides[0];
+    var gap = 26;
+    var slideW = slide.getBoundingClientRect().width + gap;
+    var maxIndex = Math.max(0, total - pv);
+    if(index > maxIndex) index = maxIndex;
+    if(index < 0) index = 0;
+    track.style.transform = 'translateX(' + (-index * slideW) + 'px)';
+    var activePage = Math.round(index / pv);
+    [].forEach.call(dotsWrap.children, function(dot,i){
+      dot.classList.toggle('active', i === activePage);
+    });
+  }
+
+  function go(i){
+    var maxIndex = Math.max(0, total - pv);
+    if(i > maxIndex) i = 0;          /* loop back */
+    if(i < 0) i = maxIndex;
+    index = i;
+    update();
+  }
+
+  prev.addEventListener('click', function(){ go(index - pv); resetAuto(); });
+  next.addEventListener('click', function(){ go(index + pv); resetAuto(); });
+
+  /* touch / drag swipe */
+  var startX = 0, dragging = false;
+  track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; dragging = true; }, {passive:true});
+  track.addEventListener('touchend', function(e){
+    if(!dragging) return; dragging = false;
+    var dx = e.changedTouches[0].clientX - startX;
+    if(dx < -40) go(index + pv);
+    else if(dx > 40) go(index - pv);
+    resetAuto();
+  }, {passive:true});
+
+  /* autoplay */
+  var auto = setInterval(function(){ go(index + pv); }, 5500);
+  function resetAuto(){ clearInterval(auto); auto = setInterval(function(){ go(index + pv); }, 5500); }
+  var sec = document.getElementById('depoimentos');
+  sec.addEventListener('mouseenter', function(){ clearInterval(auto); });
+  sec.addEventListener('mouseleave', resetAuto);
+
+  window.addEventListener('resize', function(){
+    var npv = perView();
+    if(npv !== pv){ pv = npv; index = 0; buildDots(); }
+    update();
+  });
+
+  buildDots();
+  update();
+})();
 </script>
 </body>
 </html>
