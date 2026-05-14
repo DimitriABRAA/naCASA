@@ -1286,7 +1286,7 @@ footer{
     <div class="trilha r">
       <div class="trilha-hd"><span class="trilha-nm">Aulas Complementares</span><span class="trilha-ct">Vai além · 5+ cursos</span></div>
       <div class="curso-grid">
-        <div class="ci"><h3 class="ci-nm">Domine as Cores na Decor</h3><p class="ci-d">A paleta certa transforma qualquer ambiente. Aprenda a combinar cores com critério.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
+        <div class="ci"><h3 class="ci-nm">Domine as Cores na Decor</h3><p class="ci-d">A paleta certa transforma qualquer ambiente. Aprenda a combinar cores com critério.</p><div class="ci-img"><img src="color_palette_decor.png" alt="Paleta de cores" loading="lazy"></div></div>
         <div class="ci"><h3 class="ci-nm">Iluminação Decorativa</h3><p class="ci-d">O segredo dos profissionais: como a iluminação muda a percepção de um espaço.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
         <div class="ci"><h3 class="ci-nm">Truques Baixo Custo</h3><p class="ci-d">Casa bonita não precisa custar caro. Técnicas de profissional com orçamento real.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
         <div class="ci"><h3 class="ci-nm">Móveis Coringas</h3><p class="ci-d">Peças versáteis que funcionam e transformam qualquer ambiente.</p><div class="ci-img"><img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div></div>
@@ -1616,26 +1616,20 @@ document.querySelectorAll('[data-compare]').forEach(box => {
   if(!track) return;
 
   var reviews = [
-    {n:"Gustavo Henrique de Almeida", img:"depoimentos/gustavo.jpg", badge:"Local Guide", when:"Avaliação no Google",
-     t:"A Nalupa conseguiu captar os nossos sentimentos e traduzir em design. Alguns ambientes foram incrivelmente surpreendentes e expressam exatamente o conceito de vida e lar que temos."},
     {n:"R. Ferrari", img:"depoimentos/ferrari.jpg", badge:"", when:"Avaliação no Google",
      t:"A Ana é uma querida, atenciosa e competente — supriu minhas expectativas! Em pouco tempo saí de um ap vazio e sem graça pra um ap com alma! E o melhor: dentro do meu orçamento!"},
-    {n:"Mariana Mascarenhas", img:"depoimentos/mariana.jpg", badge:"Local Guide", when:"Avaliação no Google",
-     t:"A Ana da Na Lupa tem um olhar crítico diferenciado para os projetos. O seu olhar é de extrema sutileza, elegância, e traz ao ambiente as características dos contratantes com aquele toque moderno e atemporal."},
-    {n:"Viviane Sachs", img:"depoimentos/viviane.jpg", badge:"", when:"Avaliação no Google",
-     t:"Fiquei impressionada com o serviço da Nalupa Design! Conseguiram unir perfeitamente dois estilos diferentes e criar um projeto que tanto eu quanto meu marido amamos. O cuidado e a eficiência foram excepcionais. Recomendo sempre!"},
-    {n:"Maisa Ribeiro", img:"depoimentos/maisa.jpg", badge:"", when:"Avaliação no Google",
-     t:"Realizar a consultoria com a Na Lupa foi uma das melhores experiências após adquirir meu apartamento — um momento de descobertas sobre estilo e o ambiente que desejo. Ter esse apoio foi fundamental."},
     {n:"Gabriel Chamon", img:"depoimentos/gabriel.jpg", badge:"Local Guide", when:"Avaliação no Google",
      t:"Entende muito bem os desejos e limites do cliente, entregando um resultado que é elegante e muito pessoal! Recomendo de olhos fechados."},
-    {n:"Vitor G.", img:"depoimentos/vitor.jpg", badge:"", when:"Avaliação no Google",
-     t:"A experiência com a Na Lupa foi positiva. Reformamos salas, transformando-as em studios — a qualidade e o bom gosto do projeto final foram aprovados pela grande maioria de hóspedes e inquilinos."},
     {n:"Edilamar Lopes", img:"depoimentos/edilamar.jpg", badge:"", when:"Avaliação no Google",
      t:"Experiência muito boa!!! Tudo correu muito bem — desde a consulta até a execução final, meus desejos foram muito bem entendidos pela AnaLu. Indico a todos, é muito eficiente e prestativa."},
     {n:"Fabiana Oliveira", img:"depoimentos/fabiana.jpg", badge:"", when:"Avaliação no Google",
      t:"Super indico a consultoria da AnaLu — ela me ajudou a identificar meu estilo, e isso fez toda a diferença não só no projeto da minha sala, mas da minha vida! Não vão se arrepender desse investimento."},
-    {n:"Lory Oliveira", img:"depoimentos/lory.jpg", badge:"Local Guide", when:"Avaliação no Google",
-     t:"A minha experiência com a Na Lupa design foi incrível! Atenta às necessidades pessoais e eficaz no serviço. Recomendo!"}
+    {n:"Cliente da Luiza", img:"depoimentos/viviane.jpg", badge:"", when:"Mensagem WhatsApp",
+     t:"Oi Luiza, agradeço muito a dedicação e criatividade, vc tb curtiu tanto que acelerou o projeto. Ficou top, usou tudo que conversamos, mas ao mesmo tempo mudou totalmente nossa percepção da loja, ela vai ficar do jeito que vc criou, muito obg!!!"},
+    {n:"Cliente da Luiza", img:"depoimentos/maisa.jpg", badge:"", when:"Mensagem WhatsApp",
+     t:"Que trabalho impecável Lu, muito obrigada.. Ficou ainda melhor que imaginamos, cuidou de cada detalhe pensando em nós ansiosa pra ver tudo pronto já. Obrigada obrigada ❤️ Ah e eu amei esse tom de verde"},
+    {n:"Cliente da Luiza", img:"depoimentos/lory.jpg", badge:"", when:"Mensagem WhatsApp",
+     t:"Olá Luiza! Obrigada pelo trabalho incrível que fez. Eu amei. Você conseguiu captar a minha alma. Você é incrível. Que maravilhoso tudo o que faz."}
   ];
 
   var STAR = '<svg viewBox="0 0 20 20"><path class="dp-star-fill" d="M10 1.5l2.6 5.3 5.9.86-4.25 4.14 1 5.87L10 15.1l-5.25 2.77 1-5.87L1.5 7.66l5.9-.86z"/></svg>';
